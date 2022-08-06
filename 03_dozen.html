@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n){
+                let answer;
+                if(Math.floor(n/12)==0) answer=1;
+                else{
+                    answer=Math.floor(n/12);
+                    if(n%12>0) answer+=1;
+                }
+                return answer;
+            }
+
+            console.log(solution(178));
+
+            /*  간단하게
+                answer=Math.ceil(n/12);
+            */
+        </script>
+    </body>
+</html>

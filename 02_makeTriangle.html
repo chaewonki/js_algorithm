@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                let answer="YES", max;
+                   
+                if(a>b) max=a;
+                else max=b;
+                if(c>max) max=c;
+
+                if(a+b+c-max<=max) answer="NO"; 
+                
+                return answer;
+            }
+            /* 짧은막대 두개의 합
+                let sum = a+b+c;
+                if((sum-max)<=max) answer="NO";
+            */
+
+            console.log(solution(6,7,11));
+        </script>
+    </body>
+</html>
