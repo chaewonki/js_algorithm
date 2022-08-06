@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                let answer = 0;
+                
+                if(a<b){
+                    if(a<c){
+                        answer=a;
+                    }else{
+                        answer=c;
+                    }
+                }else if(b<c){
+                    answer=b;
+                }else{
+                    answer=c;
+                }
+
+                return answer;
+
+                /* 코드를 단순화 하지 못했음
+                if(a<b) answer = a;
+                else answer = b;
+                if(c<answer) answer = c;
+                */
+            }
+
+            console.log(solution(2, 5, 1));
+        </script>
+    </body>
+</html>
