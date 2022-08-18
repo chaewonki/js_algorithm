@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(arr){  
+        // let answer = Array.from({length:n},()=>1);
+        let answer = new Array(arr.length);
+        for(let i=0;i<answer.length;i++){
+            answer[i]=1;
+        }
+        
+        for(let i=0;i<answer.length;i++){
+            for(let j=0;j<answer.length;j++){
+                //console.log(arr[i],arr[j]);
+                if(arr[i]<arr[j]) answer[i]+=1;
+            }
+        }
+        
+        return answer;
+}
+
+let arr=[87, 89, 92, 100, 76];
+console.log(solution(arr));
+        </script>
+    </body>
+</html>

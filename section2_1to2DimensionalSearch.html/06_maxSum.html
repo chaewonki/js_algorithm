@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+        function solution(arr){  
+        let answer=Number.MIN_SAFE_INTEGER, sum=0;
+        
+        //가로합
+        for(let i=0; i<arr.length;i++){
+            for(let j=0; j<arr.length;j++){
+                sum+=arr[i][j];
+            }
+            if(sum>answer) {
+                answer=sum;
+                sum=0;
+            }else sum=0;
+        }
+        // 세로합
+        for(let i=0; i<arr.length;i++){
+            for(let j=0; j<arr.length;j++){
+                sum+=arr[j][i];
+            }
+            if(sum>answer){
+                answer=sum;
+                sum=0;
+            }else sum=0;
+        }   
+        // 대각선합1
+        for(let i=0; i<arr.length;i++){
+            sum+=arr[i][i]
+        }
+        if(sum>answer){
+            answer=sum;
+            sum=0;
+        }else sum=0;
+        // 대각선합2
+        for(let i=0;i<arr.length;i++){
+            sum+=arr[arr.length-1][i];
+        }
+        if(sum>answer){
+            sum=answer;
+            sum=0;
+        }else sum=0;
+        
+        return answer;
+    }
+
+    let arr=[[10, 13, 10, 12, 15], 
+            [12, 39, 30, 23, 11],
+            [11, 25, 50, 53, 15],
+            [19, 27, 29, 37, 27],
+            [19, 13, 30, 13, 19]];
+    console.log(solution(arr));
+
+/*
+    중복을 제거하여 코드를 깔끔히 해야 합니다.
+    a)가로합, 세로합을 합쳐서 코드로 표현 해야 합니다.
+        for(let i=0; i<arr.length; i++){
+            for(let j=0; j<arr.length; j++){
+                sum1+=arr[i][j];
+                sum2+=arr[j][i];
+            }
+        }
+    b)대각선 합 두번 구했던 것을 한 번으로 합칠 수 있습니다.
+        for(let i=0; i<arr.length; i++){
+            sum1+=arr[i][i];
+            sum2+=arr[arr.length-i][i]
+        }    
+    적절한 자바스크립트 내장객체를 사용할 수 있어야 합니다.
+    answer= Math.max(answer,sum1,sum2);
+    중복된 긴 변수는 위에서 할당 및 정의를 통해 코드 길이를 줄일 수 있습니다.
+    n=arr.length;
+*/
+        </script>
+    </body>
+</html>

@@ -1,18 +1,30 @@
-function solution(a, b){         
-    let answer=[];
-    for(let i=0; i<a.length;i++){
-        // A WIN --> PUSH A
-        if(a[i]===1 && b[i]===3) answer.push('A');
-        if(a[i]===2 && b[i]===1) answer.push('A');
-        if(a[i]===3 && b[i]===2) answer.push('A');
-        if(b[i]===1 && a[i]===3) answer.push('B');
-        if(b[i]===2 && a[i]===1) answer.push('B');
-        if(b[i]===3 && a[i]===2) answer.push('B');
-        if(a[i]===b[i]) answer.push('D');
+function solution(arr){  
+    let answer=0;
+    let n=arr.length;
+    let dx = [-1,0,1,0];
+    let dy = [0,-1,0,1];
+    for(let i=0; i<n; i++){
+        for(let j=0; j<n; j++){
+            let flag=1;
+            for(let k=0; k<4; k++){
+                let nx=i+dx[k];
+                let ny=j+dy[k];
+                if(nx>=0 && ny>=0 && nx<n && ny<n
+                && arr[nx][ny]>=arr[i][j]){
+                    flag=0;
+                    break;
+                } 
+            }
+            if(flag) answer++;
+        }
     }
+    
     return answer;
 }
 
-let a=[2, 3, 3, 1, 3];
-let b=[1, 1, 2, 2, 3];
-console.log(solution(a, b));
+let arr=[[5, 3, 7, 2, 3], 
+         [3, 7, 1, 6, 1],
+         [7, 2, 5, 3, 4],
+         [4, 3, 6, 4, 1],
+         [8, 7, 3, 5, 2]];
+console.log(solution(arr));
